@@ -15,7 +15,7 @@ function ChatAI() {
     if (!prompt.trim()) return;
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:3000/auth/chat', { prompt });
+      const res = await axios.post('https://miagro.onrender.com/auth/chat', { prompt });
       setResponse(res.data.response);
     } catch (err) {
       console.error(err);

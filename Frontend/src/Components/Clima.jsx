@@ -48,7 +48,7 @@ const Clima = () => {
   const [diaSeleccionado, setDiaSeleccionado] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/auth/clima")
+    axios.get("https://miagro.onrender.com/auth/clima")
       .then(response => setClima(response.data))
       .catch(error => console.error("Error obteniendo el clima:", error));
   }, []);

@@ -11,7 +11,7 @@ const PreciosAgricolas = () => {
   const [detalle, setDetalle] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/precios')
+    axios.get('https://miagro.onrender.com/api/precios')
       .then(res => {
         setDatos(res.data);
         setCargando(false);

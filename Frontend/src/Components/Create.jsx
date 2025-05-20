@@ -8,7 +8,7 @@ function Create() {
   const [mensaje, setMensaje] = useState('');
 
   const fetchUsuarios = () => {
-    axios.get('http://localhost:3000/api/usuarios')
+    axios.get('https://miagro.onrender.com/api/usuarios')
       .then(response => {
         setUsuarios(response.data);
       })
@@ -24,7 +24,7 @@ function Create() {
 
   const cambiarRol = async (id, nuevoRol) => {
     try {
-      await axios.put(`http://localhost:3000/api/usuarios/${id}/rol`, { rol: nuevoRol });
+      await axios.put(`https://miagro.onrender.com/api/usuarios/${id}/rol`, { rol: nuevoRol });
       setMensaje(`Rol actualizado para el usuario con ID ${id}`);
       fetchUsuarios();
     } catch (error) {

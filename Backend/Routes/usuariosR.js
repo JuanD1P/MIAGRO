@@ -268,3 +268,52 @@ router.put('/usuarios/:id/rol', (req, res) => {
         res.json({ message: "Rol actualizado correctamente" });
     });
 });
+
+
+// 🧾 OBTENER TODOS LOS USUARIOS
+router.get('/usuarios', (req, res) => {
+    con.query("SELECT id, nombre_completo, email, rol FROM usuarios", (err, result) => {
+        if (err) {
+            console.error("Error al obtener usuarios:", err);
+            return res.status(500).json({ error: "Error al obtener usuarios" });
+        }
+        res.json(result);
+    });
+});
+
+// 🛠️ ACTUALIZAR ROL DE USUARIO
+router.put('/usuarios/:id/rol', (req, res) => {
+    const { id } = req.params;
+    const { rol } = req.body;
+
+    if (!['USER', 'ADMIN'].includes(rol)) {
+        return res.status(400).json({ error: "Rol inválido" });
+    }
+
+    con.query("UPDATE usuarios SET rol = ? WHERE id = ?", [rol, id], (err, result) => {
+        if (err) {
+            console.error("Error al actualizar rol:", err);
+            return res.status(500).json({ error: "Error al actualizar el rol" });
+        }
+        res.json({ message: "Rol actualizado correctamente" });
+    });
+});
+
+
+// 🗑️ ELIMINAR USUARIO POR ID
+router.delete('/usuarios/:id', (req, res) => {
+    const { id } = req.params;
+
+    con.query("DELETE FROM usuarios WHERE id = ?", [id], (err, result) => {
+        if (err) {
+            console.error("❌ Error al eliminar usuario:", err);
+            return res.status(500).json({ error: "Error al eliminar el usuario" });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: "Usuario no encontrado" });
+        }
+
+        res.json({ message: "Usuario eliminado correctamente" });
+    });
+});

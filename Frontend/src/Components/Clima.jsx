@@ -66,7 +66,6 @@ const Clima = () => {
         <img src={logo} alt="Logo" className="logoclima" />
         <button onClick={() => navigate("/ChatIA")}>Chat IA</button>
         <button onClick={() => navigate("/PreciosAgricolas")}>Precios de Mercado</button>
-        <button onClick={() => navigate("/Estadisticas")}>Estadisticas</button>
         <button className="cerrar" onClick={() => navigate("/")}>Cerrar sesión</button>
         </div>
 

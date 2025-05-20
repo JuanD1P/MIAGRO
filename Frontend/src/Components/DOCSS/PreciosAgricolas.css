@@ -1,0 +1,209 @@
+/* DOCSS/PreciosAgricolas.css */
+
+/* Fondo difuminado al abrir detalle */
+.agrimarket-dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 998;
+}
+
+/* Ventana flotante mejorada */
+.agrimarket-dark-detalle {
+  position: fixed;
+  top: 7vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1c1c1c;
+  color: #ffffff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 128, 0.45);
+  max-width: 750px;
+  width: 92%;
+  z-index: 999;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: agrimarket-fade-in 0.3s ease-out;
+  scrollbar-width: thin;
+  scrollbar-color: #00c853 #2e2e2e;
+}
+
+.agrimarket-dark-detalle::-webkit-scrollbar {
+  width: 8px;
+}
+
+.agrimarket-dark-detalle::-webkit-scrollbar-track {
+  background: #2e2e2e;
+}
+
+.agrimarket-dark-detalle::-webkit-scrollbar-thumb {
+  background-color: #00c853;
+  border-radius: 10px;
+}
+
+.agrimarket-dark-btn-cerrar {
+  background: transparent;
+  color: #00e676;
+  border: none;
+  font-size: 1.5rem;
+  float: right;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.agrimarket-dark-btn-cerrar:hover {
+  transform: scale(1.2);
+  color: #00ff88;
+}
+
+@keyframes agrimarket-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.agrimarket-dark-container {
+  background-color: #121212;
+  color: #e0e0e0;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.agrimarket-dark-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.agrimarket-dark-sub {
+  font-size: 1.1rem;
+  color: #a5d6a7;
+}
+
+.agrimarket-dark-sub-bajada {
+  font-size: 1rem;
+  color: #66bb6a;
+}
+
+.agrimarket-dark-btn-volver,
+.agrimarket-dark-btn-cerrar {
+  background-color: #00c853;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.agrimarket-dark-btn-volver:hover,
+.agrimarket-dark-btn-cerrar:hover {
+  background-color: #00e676;
+}
+
+.agrimarket-dark-cargando {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  color: #81c784;
+}
+
+.agrimarket-dark-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.agrimarket-dark-card {
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0 12px rgba(0, 255, 128, 0.15);
+  cursor: pointer;
+}
+
+.agrimarket-dark-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(0, 255, 128, 0.3);
+}
+
+.agrimarket-dark-ok {
+  border-left: 5px solid #00e676;
+}
+
+.agrimarket-dark-error {
+  border-left: 5px solid #f44336;
+}
+
+.agrimarket-dark-warning {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.agrimarket-dark-footer {
+  margin-top: 4rem;
+  text-align: center;
+  color: #66bb6a;
+  font-weight: bold;
+}
+
+/* Detalle flotante tipo modal mejorado */
+.agrimarket-dark-detalle {
+  position: fixed;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 128, 0.4);
+  max-width: 720px;
+  width: 92%;
+  z-index: 999;
+  animation: pop-in 0.3s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00c853 #2e2e2e;
+}
+
+.agrimarket-dark-detalle::-webkit-scrollbar {
+  width: 8px;
+}
+
+.agrimarket-dark-detalle::-webkit-scrollbar-track {
+  background: #2e2e2e;
+  border-radius: 12px;
+}
+
+.agrimarket-dark-detalle::-webkit-scrollbar-thumb {
+  background-color: #00c853;
+  border-radius: 12px;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

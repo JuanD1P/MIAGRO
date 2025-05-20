@@ -1,0 +1,295 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #023a4f;
+  height: 100%;
+  width: 100%;
+}
+#root {
+  height: 100%;
+  background-color: #023a4f;
+}
+
+.logoclima{
+    width: 100px;
+
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%;
+  background-color: #00fff735;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 20px; 
+gap: 10px;
+color: white;
+}
+
+.navbar button {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  color: #fffefe;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin: 0 5px; /* 🎯 ESPACIO HORIZONTAL ENTRE BOTONES */
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+
+.navbar button:hover {
+  background-color: #0e406f;
+  border-radius: 5px;
+}
+
+.navbar .cerrar {
+  color: rgb(175, 2, 2);
+}
+
+
+.inicioP {
+  display: flex;
+  align-items: flex-start; /* o center si quieres alinear verticalmente */
+  justify-content: center;
+  gap: 2rem; /* espacio entre el clima y la imagen */
+  padding: 2rem;
+  flex-wrap: wrap; /* Para que sea responsive */
+}
+
+.clima-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  background: rgba(0, 24, 37, 0.925);
+  border-radius: 20px;
+  padding: 30px 40px;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #e0e0e0;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+  border: 1px solid rgba(255 255 255 / 0.2);
+}
+
+.loading {
+  text-align: center;
+  margin-top: 8rem;
+  font-size: 1.5rem;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.resumen-hoy {
+  text-align: center;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255 255 255 / 0.2);
+  padding-bottom: 2rem;
+}
+
+.resumen-hoy h2 {
+  font-weight: 600;
+  font-size: 2.8rem;
+  margin-bottom: 0.25rem;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(30,144,255, 0.8);
+}
+
+.resumen-hoy h3 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #a3cef1;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.icono-hoy {
+  width: 160px;
+  height: 160px;
+  filter: drop-shadow(0 0 10px rgba(30,144,255,0.7));
+  margin-bottom: 1rem;
+}
+
+.temp-hoy {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin: 0.25rem 0 1rem;
+  color: #1e90ff;
+  text-shadow: 0 0 8px #1e90ffaa;
+}
+
+.desc-hoy {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #cbd5e1;
+  text-transform: capitalize;
+}
+
+.detalles-hoy {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  font-size: 0.95rem;
+  color: #b0c4de;
+}
+
+.detalles-hoy p {
+  background: rgba(255 255 255 / 0.1);
+  padding: 12px 15px;
+  border-radius: 12px;
+  box-shadow:
+    inset 0 0 6px rgba(255 255 255 / 0.15),
+    0 1px 3px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  user-select: text;
+}
+
+.detalles-hoy p:hover {
+  background-color: rgba(30,144,255, 0.15);
+  color: #fff;
+}
+
+.pronostico-container {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 15px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #1e90ff66 transparent;
+}
+
+.pronostico-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.pronostico-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pronostico-container::-webkit-scrollbar-thumb {
+  background-color: #1e90ff66;
+  border-radius: 10px;
+}
+
+.dia-pronostico {
+  flex: 0 0 140px;
+  background: rgba(255 255 255 / 0.1);
+  border-radius: 16px;
+  padding: 18px 12px;
+  box-shadow:
+    0 4px 15px rgba(30,144,255, 0.2),
+    inset 0 0 12px rgba(255 255 255 / 0.3);
+  cursor: pointer;
+  color: #c8d6e5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.dia-pronostico:hover {
+  background-color: rgba(30, 144, 255, 0.2);
+  color: #e0eefe;
+  box-shadow:
+    0 6px 25px rgba(30,144,255, 0.5),
+    inset 0 0 18px rgba(255 255 255 / 0.5);
+}
+
+.dia-pronostico.seleccionado {
+  background-color: rgba(30, 144, 255, 0.35);
+  color: #ffffff;
+  box-shadow:
+    0 0 20px 3px #1e90ffcc,
+    inset 0 0 25px rgba(255 255 255 / 0.8);
+}
+
+.dia-pronostico p {
+  margin: 6px 0 0;
+  font-weight: 600;
+  text-align: center;
+  text-transform: capitalize;
+  user-select: text;
+}
+
+.icono-dia {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 6px rgba(30,144,255,0.6));
+}
+
+/* Modal */
+
+.modal-fondo {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 15, 30, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+  padding: 1rem;
+}
+
+.modal-ventana {
+  background: linear-gradient(135deg, #1e90ffdd 0%, #004aaddd 100%);
+  border-radius: 24px;
+  padding: 30px 35px;
+  width: 360px;
+  max-width: 95vw;
+  box-shadow: 0 0 40px #1e90ffaa;
+  color: #e3f2fd;
+  font-family: 'Poppins', sans-serif;
+  user-select: text;
+  position: relative;
+  text-align: center;
+}
+
+.modal-ventana h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px #e3f2fdbb;
+}
+
+.modal-ventana p {
+  font-size: 1rem;
+  margin: 8px 0;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.modal-cerrar {
+  background: rgba(203, 12, 12, 0.801);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

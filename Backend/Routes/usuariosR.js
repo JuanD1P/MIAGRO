@@ -4,16 +4,17 @@ import jwt from 'jsonwebtoken';
 import bcryptjs from 'bcryptjs';
 import axios from 'axios';
 import { CohereClient } from 'cohere-ai';
-import dotenv from 'dotenv';
 
-dotenv.config();
 
 const router = express.Router();
 
 let cohere;
 
 async function initializeCohere() {
-    const apiKey = process.env.COHERE_API_KEY;
+    const apiKey = '8Uwiz86ll4I1072zXBgnliPCO76GDrXmcK4OVjxy';
+    const TEST_VAR = 'test_value';
+
+
     if (!apiKey) {
         console.error("Error: La variable de entorno COHERE_API_KEY no está configurada.");
         return null;

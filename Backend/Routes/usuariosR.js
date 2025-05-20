@@ -1,7 +1,7 @@
 import express from 'express';
 import con from '../utils/db.js';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import axios from 'axios';
 import { CohereClient } from 'cohere-ai';
 import dotenv from 'dotenv';
@@ -56,7 +56,7 @@ router.post('/register', async (req, res) => {
             }
 
             // Encriptar la contraseña
-            const hashedPassword = await bcrypt.hash(password, 10);
+            const hashedPassword = await bcryptjs.hash(password, 10);
 
             // Insertar usuario con rol 'USER' por defecto
             const sql = "INSERT INTO usuarios (email, password, nombre_completo, rol) VALUES (?, ?, ?, 'USER')";
@@ -91,7 +91,7 @@ router.post('/userlogin', (req, res) => {
         }
 
         try {
-            const validPassword = await bcrypt.compare(password, result[0].password);
+            const validPassword = await bcryptjs.compare(password, result[0].password);
             if (!validPassword) {
                 return res.json({ loginStatus: false, Error: "Contraseña incorrecta" });
             }

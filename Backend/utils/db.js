@@ -1,10 +1,10 @@
 import mysql from 'mysql';
 
 const con = mysql.createConnection({
-    host: 'bavtb97nyrdvkghopy9i-mysql.services.clever-cloud.com', 
-    user: 'uysekncqgasmw8cs',
-    password: 'XG4TDNu7Fy8z0IQDcmz1',
-    database: 'bavtb97nyrdvkghopy9i',
+    host: 'bigynkkuuwjobehee9hq-mysql.services.clever-cloud.com', 
+    user: 'un7o6diwmunexpkw',
+    password: 'fBBa4SgOmZffDC2WKewL',
+    database: 'bigynkkuuwjobehee9hq',
     port: 3306 
   });
 
